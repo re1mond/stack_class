@@ -30,6 +30,64 @@ Stack::Stack(const Stack & other) {
 	cout << "Конструктор копiювання скопiював класс з " << &other << " у " << this << endl;
 }
 
+// Перегрузка оператору присваювання
+void Stack::operator= (const Stack & other) {
+	cout << "Визивався оператор = "<< endl;
+
+	size = other.size;
+	MaxSize = other.MaxSize;
+	type = other.type;
+
+	if (this->stack_arr!= nullptr) {
+		delete[] this->stack_arr;
+	}
+
+	this->stack_arr = new int[other.MaxSize];
+
+	for (int i = 0; i < other.size + 1; i++) {
+		stack_arr[i] = other.stack_arr[i];
+	}
+}
+
+// Перегрузка оператору ==
+bool Stack::operator==(const Stack &other) {
+	
+	if (size != other.size) {
+		return false;
+	}
+	else {
+		for (int i = 0; i < size; i++) {
+			if (stack_arr[i] == other.stack_arr[i]) {
+				continue;
+			}
+			else {
+				return false;
+			}
+			return true;
+		}
+	}
+}
+
+// Перегрузка оператору !=
+bool Stack::operator!=(const Stack &other) {
+
+	if (size != other.size) {
+		return true;
+	}
+	else {
+		for (int i = 0; i < size; i++) {
+			if (stack_arr[i] == other.stack_arr[i]) {
+				continue;
+			}
+			else {
+				return true;
+			}
+		}
+		return false;
+
+	}
+}
+
 // Додавання елементу в вершину стеку
 void Stack::push(int element)  {
 	size = size + 1;

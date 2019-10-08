@@ -27,14 +27,19 @@ int main()
 		}
 	}
 
-	// Копіювання екземпляра класу а в класс с та d
-	Stack c(a);
-	Stack d(a);
-	Stack p(b);
-	// Додавання в вершину класу значення
 
-	std::cout << "\n";
-	
+	a = b;
+
+	std::cout << "Викликаємо оператор == ";
+	bool result = a == b;
+	std::cout << std::boolalpha << result <<"\n";
+
+	std::cout << "Викликаємо оператор != ";
+	bool result_v = a != b;
+	std::cout << std::boolalpha << result_v << "\n";
+
+
+	std::cout << "\n";	
 	// Вивід створених стеків
 	std::cout << "a: ";
 	a.print();
@@ -43,17 +48,7 @@ int main()
 	std::cout << "b: ";
 	b.print();
 
-	std::cout << "\n";
-	std::cout << "c: ";
-	c.print();
 
-	std::cout << "\n";
-	std::cout << "d: ";
-	d.print();
-
-	std::cout << "\n";
-	std::cout << "p: ";
-	p.print();
 
 	std::cout << "\n";
 	srand(time(0));

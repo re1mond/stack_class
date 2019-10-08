@@ -7,10 +7,20 @@ public:
 	
 	// Конструктор копіювання
 	Stack(const Stack & other);
+
 	
 	// Деструктор классу
 	~Stack();
 	
+	// Перегрузка оператору =
+	void operator=(const Stack & other);
+
+	// Перегрузка опретору ==
+	bool operator==(const Stack & other);
+
+	// Перегрузка опретору !=
+	bool operator!=(const Stack & other);
+
 	// Массив для зберігання елементів стеку
 	int * stack_arr;
 
